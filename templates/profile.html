@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Профиль пользователя {{ author }}{% endblock %}
+{% block header %}Профиль пользователя {{ author }}{% endblock %}
+{% block content %}
+    <main role="main" class="container">
+        <div class="row">
+            {% include "user_profile.html" %}
+            <div class="col-md-9">
+                <div class="container">
+                    {% for post in page %}
+                        {% include "post_item.html" with post=post add_comment=True %}
+                    {% endfor %}
+                </div>
+
+                {% if page.has_other_pages %}
+                    {% include "paginator.html" with items=page paginator=paginator %}
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light mb-1" style="background-color: #97dfe7;">
+    <a class="navbar-brand p-2" href="{% url 'index' %}">Social network</a>
+    <nav class="my-2 my-md-0 mr-md-3">
+        {% if user.is_authenticated %}
+            <a class="p-2 text-dark" href="{% url 'profile' username=user.username %}">
+                <span style="color:red">{{ user.username }}</span>
+            </a> |
+            <a class="p-2 text-dark" href="{% url 'new_post' %}">Добавить новую запись</a>
+            <a class="p-2 text-dark" href="{% url 'new_group' %}">Добавить новую группу</a> |
+            <a class="p-2 text-dark" href="{% url 'password_change' %}">Изменить пароль</a>
+            <a class="p-2 text-dark" href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a class="p-2 text-dark" href="{% url 'login' %}">Войти</a> |
+            <a class="p-2 text-dark" href="{% url 'signup' %}">Регистрация</a>
+        {% endif %}
+    </nav>
+</nav>

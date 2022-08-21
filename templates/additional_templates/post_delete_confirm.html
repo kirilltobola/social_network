@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Подтвердите действие{% endblock %}
+{% block content %}
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Вы уверены, что хотите удалить пост?</h1>
+                <p class="lead">
+                    <a href="{% url 'post_delete' username=username post_id=post_id %}">Подтвердить действие</a> |
+                    <a href="{% url 'index' %}">Вернуться на главную</a>
+                </p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
